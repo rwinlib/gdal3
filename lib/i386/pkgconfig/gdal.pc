@@ -1,0 +1,16 @@
+CONFIG_VERSION=3.0.4
+CONFIG_INST_PREFIX=/mingw32
+CONFIG_INST_LIBS=-L/mingw32/lib -lgdal
+CONFIG_INST_CFLAGS=-I/mingw32/include
+CONFIG_INST_DATA=/mingw32/share/gdal
+prefix=${CONFIG_INST_PREFIX}
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${exec_prefix}/include
+datadir=${CONFIG_INST_DATA}
+
+Name: libgdal
+Description: Geospatial Data Abstraction Library
+Version: ${CONFIG_VERSION}
+Libs: ${CONFIG_INST_LIBS}
+Cflags: ${CONFIG_INST_CFLAGS}
