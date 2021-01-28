@@ -1,8 +1,8 @@
 # GDAL 3
 
-Windows build of GDAL 3 stack using same LTS verions as Ubuntu 20.04:
- - [gdal 3.0.4](https://github.com/r-windows/rtools-backports/tree/master/mingw-w64-gdal) (GCC 4.9.3 backport)
- - [proj 6.3.1](https://github.com/r-windows/rtools-backports/tree/master/mingw-w64-proj) (GCC 4.9.3 backport)
+Windows build of GDAL 3 stack:
+ - [gdal 3.2.1](https://github.com/r-windows/rtools-backports/tree/master/mingw-w64-gdal) (GCC 4.9.3 backport)
+ - [proj 7.2.1](https://github.com/r-windows/rtools-backports/tree/master/mingw-w64-proj) (GCC 4.9.3 backport)
  - [geos 3.8.0](https://github.com/r-windows/rtools-backports/tree/master/mingw-w64-geos) (GCC 4.9.3 backport)
  - Dependencies were built with rtools40 GCC 8.3.0 [rtools-packages](https://github.com/r-windows/rtools-packages)
  
