@@ -1,17 +1,20 @@
 # GDAL 3
 
 Windows build of GDAL 3 stack:
- - [gdal 3.2.1](https://github.com/r-windows/rtools-backports/tree/master/mingw-w64-gdal) (GCC 4.9.3 backport)
- - [proj 7.2.1](https://github.com/r-windows/rtools-backports/tree/master/mingw-w64-proj) (GCC 4.9.3 backport)
- - [geos 3.8.0](https://github.com/r-windows/rtools-backports/tree/master/mingw-w64-geos) (GCC 4.9.3 backport)
+ - [gdal 3.2.1](https://github.com/r-windows/rtools-packages/tree/master/mingw-w64-gdal)
+ - [proj 7.2.1](https://github.com/r-windows/rtools-packages/tree/master/mingw-w64-proj)
+ - [geos 3.9.0](https://github.com/r-windows/rtools-packages/tree/master/mingw-w64-geos)
  - Dependencies were built with rtools40 GCC 8.3.0 [rtools-packages](https://github.com/r-windows/rtools-packages)
- 
+
+The binaires in [lib-4.9.3](lib-4.9.3) are needed to build on R 3.3-3.6 and were built with [rtools-backports](https://github.com/r-windows/rtools-backports).
+
 Some notes:
- - The GDAL backport is configurd with `--disable-crypto` because the crypto implementation requires mingw-w64 v4 and Windows 7, which CRAN doesn't support currently.
+ - The GDAL backport is configurd with `--disable-crypto` because the crypto implementation requires mingw-w64 v4.
+ - The ODBC driver only seems to work on 64-bit Windows.
  - Dropped libkea driver
  - The `sf` package requires compiling with `-DHAVE_PROJ_H` to work with PROJ6
 
-Example linker flags:
+Example linker flags (see [Makevars.win](https://github.com/r-spatial/sf/blob/master/src/Makevars.win) in sf for a real example):
 
 ```make
 PKG_LIBS = \
@@ -24,7 +27,7 @@ PKG_LIBS = \
 	-lmfhdf -lhdf -lxdr -lpcre \
 	-lopenjp2 -ljasper -lpng -ljpeg -ltiff -lgeotiff -lgif -lxml2 -llzma -lz \
 	-lodbc32 -lodbccp32 -liconv -lpsapi -lwldap32 -lsecur32 -lgdi32 -lnormaliz \
-	-lcrypto -lcrypt32 -lws2_32
+	-lcrypto -lcrypt32 -lws2_32 -lshlwapi
 ```
 
 Full configuration:
@@ -120,6 +123,3 @@ GDAL is now configured for x86_64-w64-mingw32
   enable POSIX iconv support:yes
   hide internal symbols:     no
 ```
-
-  
- 
