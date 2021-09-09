@@ -18,7 +18,7 @@
 /* #undef HAVE_5ARGS_MREMAP */
 
 /* --prefix directory for GDAL install */
-#define GDAL_PREFIX "/mingw64"
+#define GDAL_PREFIX "/ucrt64"
 
 /* Define to 1 if you have the <assert.h> header file. */
 #define HAVE_ASSERT_H 1
@@ -119,7 +119,7 @@
 #define HAVE_UINTPTR_T 1
 
 /* Define to 1 if you have the <memory.h> header file. */
-#define HAVE_MEMORY_H 1
+/* #undef HAVE_MEMORY_H */
 
 /* Define to 1 if you have the <png.h> header file. */
 #define HAVE_PNG_H 1
