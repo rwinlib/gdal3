@@ -3,7 +3,7 @@
 Windows build of GDAL 3 stack:
  - [gdal 3.2.1](https://github.com/r-windows/rtools-packages/tree/master/mingw-w64-gdal)
  - [proj 7.2.1](https://github.com/r-windows/rtools-packages/tree/master/mingw-w64-proj)
- - [geos 3.9.0](https://github.com/r-windows/rtools-packages/tree/master/mingw-w64-geos)
+ - [geos 3.9.1](https://github.com/r-windows/rtools-packages/tree/master/mingw-w64-geos)
  - Dependencies were built with rtools40 GCC 8.3.0 [rtools-packages](https://github.com/r-windows/rtools-packages)
 
 The binaires in [lib-4.9.3](lib-4.9.3) are needed to build on R 3.3-3.6 and were built with [rtools-backports](https://github.com/r-windows/rtools-backports).
