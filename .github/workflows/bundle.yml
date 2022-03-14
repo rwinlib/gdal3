@@ -1,0 +1,31 @@
+name: bundle binaries
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Prepare git
+        run: |
+          git config --global core.autocrlf false
+          git config --global user.email 'jeroenooms@gmail.com'
+          git config --global user.name  'Jeroen Ooms (via CI)'
+      - uses: actions/checkout@v2
+      - id: download
+        name: Download libraries
+        run: |
+          cd $(cygpath ${GITHUB_WORKSPACE})
+          .github/workflows/bundle.sh
+        shell: c:\rtools40\usr\bin\bash.exe --login {0}
+      - name: Push binaries
+        run: |
+          version=${{ steps.download.outputs.VERSION }}
+          git add README.md include share lib*
+          git commit -m "Bundle $version ($(date +%F))" || exit 0
+          git fetch origin 5f71e86dc85dfb32d9b7b05642ae22204814a2a0
+          git cherry-pick 5f71e86dc85dfb32d9b7b05642ae22204814a2a0
+          git tag $version
+          git push origin master $version
+        shell: bash
